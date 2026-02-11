@@ -1,0 +1,23 @@
+; Always Start with Vector Table
+; Vector Table Mapped to Address 0 at Reset
+          		AREA    	RESET, DATA, READONLY
+ 
+__Vectors 
+			DCD  		0x20084000     ; stack pointer value when stack is empty
+			DCD  		START
+          
+; The program
+          		AREA    	MYCODE, CODE, READONLY
+			ENTRY 
+ 
+START
+;User Code Starts from the next line
+
+			MOV 		R0, #1
+ 
+LOOP  
+			ADD 		R1, R0, #2
+			B  		LOOP
+	  
+;User Code Ends	  
+			END				;End of the program
